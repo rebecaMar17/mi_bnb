@@ -32,7 +32,10 @@
         🏠 MiBnB
       </span>
     <% end %>
-
+    <%= form_with url: flats_path, method: :get, local: true, style: "display: flex; gap: 10px;" do |form| %>
+      <%= form.text_field :query, placeholder: "Buscar destino...", style: "padding: 10px; border-radius: 20px; border: 1px solid #ddd; width: 200px;" %>
+      <%= form.submit "🔍", style: "background: #ff385c; border: none; color: white; padding: 10px 15px; border-radius: 50%; cursor: pointer;" %>
+    <% end %>
     <div>
       <%= link_to "Ver todos", flats_path, style: "text-decoration: none; color: #222; margin-right: 20px; font-weight: 500;" %>
       
