@@ -1,0 +1,37 @@
+<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: sans-serif;">
+
+  <%= link_to "← Volver a la lista", flats_path, style: "text-decoration: none; color: #717171;" %>
+
+  <h1 style="font-size: 32px; margin-bottom: 10px;"><%= @flat.name %></h1>
+  <p style="color: #717171; font-size: 18px;"><%= @flat.address %></p>
+
+  <div style="background-color: #f7f7f7; padding: 20px; border-radius: 12px; margin: 20px 0;">
+    <h2 style="margin: 0;">
+      <%= @flat.price_per_night %> € <span style="font-size: 16px; font-weight: normal;">/ noche</span>
+    </h2>
+
+    <% if @flat.price_per_night < 50 %>
+      <p style="color: green; font-weight: bold; margin-top: 10px;">
+        🔥 ¡Precio de oferta! Es una ganga.
+      </p>
+    <% elsif @flat.price_per_night > 200 %>
+      <p style="color: #ff385c; font-weight: bold; margin-top: 10px;">
+        💎 Alojamiento de Lujo.
+      </p>
+    <% end %>
+    </div>
+
+  <div style="line-height: 1.6; font-size: 18px;">
+    <h3>Lo que ofrece este lugar</h3>
+    <p><%= @flat.description %></p>
+  </div>
+
+  <br><br>
+  
+  <div style="border-top: 1px solid #ddd; padding-top: 20px;">
+    <%= link_to "Editar este piso", edit_flat_path(@flat), style: "margin-right: 15px; color: blue;" %>
+    
+    <%= link_to "Borrar este piso", @flat, data: { turbo_method: :delete, turbo_confirm: "¿Seguro que quieres borrarlo?" }, style: "color: red;" %>
+  </div>
+
+</div>
